@@ -1,0 +1,445 @@
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    /* font-family: 'Kaushan Script', cursive; */
+    font-size: 15px;
+    line-height: 1.6;
+    color: #333;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+/* 1 PAGE */
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Intro */
+.intro {
+    width: 100%;
+     height: 100vh; /* растянули блока на всю высоту экрана */
+    background-image: url('./images/intro.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    display: flex;  
+    align-items: center;
+}
+
+.intro_title {
+    font-size: 150px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1;
+    color: white;
+}
+
+.intro_title::after { /* всевдоэлемент */
+    content: '';
+    width: 60px;
+    height: 3px;
+    display: block;
+    background-color: white;
+    margin: 60px auto 0;
+}
+
+.intro_inner {
+    width: 100%;
+    max-width: 880px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.intro_suptitle {
+    color: white;
+    font-family: 'Kaushan Script', cursive ;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 72px;
+    margin-bottom: 20px;
+}
+
+/* Header */
+.header {
+    width: 100%;
+    position: absolute; /* условно прибили хедер к top = 0 */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.header_inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0px 0px 0px;
+}
+
+.header_logo {
+    font-size: 30px;
+    font-weight: 700;
+    color: #fff;
+}
+
+/* Nav */
+.nav {
+    font-size: 14px;
+    text-transform: uppercase;
+    margin: 0 10px;
+}
+
+.nav_link {
+    color: white;
+    text-decoration: none;
+    transition: color .5s linear;
+    margin: 0px 20px 0px 0px;
+    position: relative;
+}
+
+.nav_link:hover {
+    color: #fce38a;
+}
+
+.nav_link::after {
+    content: "";
+    display: block; 
+    width: 100%;
+    height: 3px;
+    background-color: #fce38a;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s linear;
+}
+
+.nav_link:hover::after {
+    display: block;
+    opacity: 1;
+}
+
+/* Button */
+.button {
+    display: inline-block;
+    vertical-align: top;
+    border: 3px solid white;
+    padding: 8px 30px;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-top: 40px;
+    transition: background-color 0.3s linear ;
+}
+
+.button:hover {
+    background-color: white;
+    color: black;
+}
+
+/* Slider */
+.slider {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.slider_item {
+    padding: 20px 0;
+    border-top: 3px solid white;
+    width: 23%;
+    font-size: 18px;
+    color: white;
+    text-transform: uppercase;
+    opacity: 0.6;
+    position: relative;
+}
+
+.slider_num {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.slider_item.active {
+    opacity: 1;
+}
+
+.slider_item.active::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: 0;
+    z-index: 1;
+    width: 70px;
+    height: 3px;
+    background-color: #f38181;
+}
+
+/* 2 PAGE */
+
+/* Section */
+.section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.section_title {
+    text-align: center;
+    font-size: 30px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #333;
+}
+
+.section_title::after { 
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #f38181;
+    margin: 30px auto;
+}
+
+.section_suptitle {
+    font-family: 'Kaushan Script', cursive ;
+    font-size: 24px;
+    color: #333;
+}
+
+.section_header {
+    width: 100%;
+    max-width: 950px;
+    margin: 0px auto 40px;
+}
+
+.section_text {
+    font-size: 15px;
+    color: #999;
+}
+
+/* About */
+.about {
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.about_item {
+    width: 380px;
+    background-color: #95e1d3;
+    position: relative;
+}
+
+.about_item:hover .about_img img {
+    opacity: .1;
+}
+
+.about_item:hover .about_img {
+    transform: translate3d(-10px, -10px, 0);
+}
+
+.about_img {
+    background: linear-gradient(to bottom, #f38181, #fce38a);
+    transition: transform .3s linear;
+}
+
+.about_img img {
+    display: block;
+    transition: opacity .1s linear;
+}
+
+.about_text {
+    width: 100%; /* используем width так как position absolute */
+    color: white;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+    opacity: 0;
+
+    /* Выровняли по центру */
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 2;
+    transform: translate3d(0, -50%, 0);
+    transition: opacity .2s linear;
+}
+
+
+.about_item:hover .about_text {
+    opacity: 1;
+}
+
+/* Statistics */
+.statistics {
+    background-color: #95e1d3;
+}
+
+.stat {
+    display: flex;
+}
+
+.stat_item {
+    flex:  1 1 0;
+    border-left: 1px solid white;
+    text-align: center;
+    padding: 60px 30px;
+    text-transform: uppercase;
+}
+
+/* Всем остальным применяем */
+.stat_item:last-child {
+    border-right: 1px solid white;
+}
+
+.stat_count {
+    color: white;
+    font-size: 75px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.stat_text {
+    color: white;
+    font-size: 20x;
+}
+
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    /* font-family: 'Kaushan Script', cursive; */
+    font-size: 15px;
+    line-height: 1.6;
+    color: #333;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+/* 3 PAGE */
+
+/* Section */
+.section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Section Header */
+.services_header {
+    width: 100%;
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+.suptitle_text {
+    font-size: 24px;
+    font-family: 'Kaushan Script', cursive ;
+    color: #333;
+}
+
+.title_text {
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.title_text::after {
+    content: '';
+    display: block;
+    margin: 30px auto ;
+    width: 60px;
+    height: 3px;
+    background-color: #f38181;
+}
+
+/* Services */
+.services {
+    padding: 40px 0;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.services_item {
+    flex: 1 1 0;
+    padding-left: 90px;
+    position: relative;
+    text-align: left;
+}
+
+.services_icon {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    z-index: 1;
+}
+
+.services_title {
+    font-size: 14px;
+    color: #333;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.services_text {
+    font-size: 15px;
+    width: 100%;
+    max-width: 300px;
+}
+
+
+/* 4 PAGE */
+
+.section--device {
+    background: url(./images/devices-bg.jpg)
+    center no-repeat;
+    background-size: cover;
+    padding-bottom: 0;
+}
+
+/* Devices */
+
+.devices {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.devices_iphone {
+    display: block;
+    position: absolute;
+    right: -90px;
+    top: 240px;
+}
